@@ -13,8 +13,9 @@ public class StringCollection {
     public const string VERTICAL2 = "Vertical2";
     public const string HORIZONTAL2 = "Horizontal2";
     //TAGS
-    public const string Player1 = "Player1";
-    public const string Player2 = "Player2";
+    public const string PLAYER1 = "Player1";
+    public const string PLAYER2 = "Player2";
+    public const string SPAWN = "Spawn";
     //
 
 
