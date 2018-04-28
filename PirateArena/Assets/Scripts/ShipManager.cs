@@ -4,37 +4,35 @@ using UnityEngine;
 
 public class ShipManager : MonoBehaviour {
 
-	public int index = 0;
+	public int index = 0; //index of the ship. is used for input controle
     public Rigidbody2D rb;
 
-    [SerializeField] int maxLife;
-    int currentLife;
+    private GameManager gm;
+
+    [SerializeField] float Life;
     [SerializeField] float movementSpeed;
     [SerializeField] float rotationSpeed;
 
-    float horizontalAxis;
+    float horizontalAxis; //is used for rotation
 
-    // Use this for initialization
+    //initialization
     void Start () {
-        currentLife = maxLife;
         rb = GetComponent<Rigidbody2D>();
+        gm = GameObject.Find(StringCollection.GAMEMANAGER).GetComponent<GameManager>();
 	}
 
-	// Update is called once per frame
+
+
 	void Update () {
 		Move(Time.deltaTime);
 	}
 
 	void FixedUpdate() {
-        //ka fieleicht input oder sowas
+        InputManager();
     }
 
-	void Move(float delta){
-        //transform.position += this.transform.up * movementSpeed;
-        rb.velocity = this.transform.up * movementSpeed * delta;
-
-        switch (index)
-        {
+    void InputManager() {
+        switch (index) { //prosesses input dependent of player index
             case 0:
                 horizontalAxis = -Input.GetAxis(StringCollection.Horizontal);
                 break;
@@ -42,10 +40,21 @@ public class ShipManager : MonoBehaviour {
                 horizontalAxis = -Input.GetAxis(StringCollection.HORIZONTAL2);
                 break;
             default:
+                horizontalAxis = 0; //if player index is not handled coretly
                 break;
         }
-        /*Quaternion temp = Quaternion.Euler(0, 0, horizontalAxis * rotationSpeed);
-        transform.rotation = temp;*/
-        transform.Rotate(0, 0, horizontalAxis * rotationSpeed * delta);
+    }
+
+	void Move(float delta) {
+        rb.velocity = this.transform.up * movementSpeed * delta; //changes velosity so you can kolide with islands and ships //TODO: add wind
+        
+        transform.Rotate(0, 0, horizontalAxis * rotationSpeed * delta); //rotates player dependend of input
+    }
+
+    public void OnHit(float damage = 1) { //will decrese the live of the player. it will report its death if it reaches 0 to gamemanager
+        Life -= damage;
+        if (Life <= 0) {
+            gm.SetGameOver();
+        } //TODO: else report to UI
     }
 }
