@@ -96,6 +96,8 @@ MonoBehaviour:
   rotationSpeed: 40
   MaxCD: 0
   BulletSpeed: 0
+  PreView: {fileID: 0}
+  Bullet: {fileID: 0}
   MaxPlayer: 2
 --- !u!212 &212544238097522322
 SpriteRenderer:

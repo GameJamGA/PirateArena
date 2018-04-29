@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class ShipManager : MonoBehaviour {
 
-	public int index = 0; //index of the ship. is used for input controle
+    public int index = 0; //index of the ship. is used for input controle
     public Rigidbody2D rb;
 
     private GameManager gm;
@@ -15,8 +14,12 @@ public class ShipManager : MonoBehaviour {
     [SerializeField] float rotationSpeed;
     [SerializeField] float MaxCD;
     [SerializeField] float BulletSpeed;
+    [SerializeField] GameObject PreView;
+    [SerializeField] GameObject Bullet;
 
     [SerializeField] int MaxPlayer = 2;
+
+    GameObject[] PreViewInstans;
 
     int right = 0;
     float rightTimer = 0;
@@ -29,6 +32,7 @@ public class ShipManager : MonoBehaviour {
     void Start () {
         rb = GetComponent<Rigidbody2D>();
         gm = GameObject.Find(StringCollection.GAMEMANAGER).GetComponent<GameManager>();
+
 	}
 
 
@@ -37,9 +41,9 @@ public class ShipManager : MonoBehaviour {
 		Move(Time.deltaTime);
 
         if (right == 2)
-            rightTimer += Time.deltaTime;
+            rightTimer += Time.deltaTime; //TODO: report to UI
         if (left == 2)
-            leftTimer += Time.deltaTime;
+            leftTimer += Time.deltaTime; //TODO: report to UI
 
         if (rightTimer >= MaxCD) {
             right = 0;
@@ -55,6 +59,23 @@ public class ShipManager : MonoBehaviour {
         InputManager();
     }
 
+    void SetReady() {
+        if (right == 1) {
+
+        }else if (left == 1) {
+
+        }
+    }
+
+    void Fire(){
+        if (right == 2) {
+            Instantiate(Bullet, -transform.right, transform.rotation);
+        }
+        else if (left == 2) {
+            Instantiate(Bullet, transform.right, transform.rotation);
+        }
+    }
+
     void InputManager() {
         switch (index) { //prosesses input dependent of player index
             case 0:
@@ -66,8 +87,10 @@ public class ShipManager : MonoBehaviour {
                     left = 1; //TODO: Stage left side
                 }else if (right == 1 && Input.GetAxis(StringCollection.VERTICAL) >= 0) {
                     right = 2; //TODO: Fire right
+                    Fire();
                 }else if (left == 1 && Input.GetAxis(StringCollection.VERTICAL) <= 0) {
                     left = 2; //TODO: Fire left
+                    Fire();
                 }
 
                 break;
