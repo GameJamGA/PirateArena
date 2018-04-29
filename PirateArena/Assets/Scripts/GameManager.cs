@@ -17,8 +17,10 @@ public class GameManager : MonoBehaviour {
 
     //prefab für die Spieler
     [SerializeField] private GameObject shipPrefab;
+    [SerializeField] GameObject myCenter;
+    public Vector2 myWind;
     Rigidbody2D myRB;
-    //TODO: SCHIFFE ALS ARRAY LADEN
+
     private GameObject[] players;
     [SerializeField] private Transform[] spawnPosition;
     [SerializeField] private int maxPlayers;
@@ -46,8 +48,11 @@ public class GameManager : MonoBehaviour {
 
     private void Update()
     {
+        //draws an random vector to randomize the wind position
         Vector2 randomVec = new Vector2(Random.insideUnitCircle.x, Random.insideUnitCircle.y);
-        Debug.Log(randomVec);
+
+
+        myWind = (transform.position - myCenter.transform.position);
         //myRB.AddForce(randomVec);
         myRB.velocity = randomVec;
         //add random movement here
@@ -77,7 +82,8 @@ public class GameManager : MonoBehaviour {
         for(int i = 0; i <= maxPlayers - 1; i++)
         {
             players[i] = Instantiate(shipPrefab, spawnPosition[i].transform.position, spawnPosition[i].transform.rotation);
-            //TODO: Index addieren.
+            players[i].GetComponent<ShipManager>().index = i;
+            
 
         }
 
