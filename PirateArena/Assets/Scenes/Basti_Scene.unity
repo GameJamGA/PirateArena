@@ -749,6 +749,11 @@ Prefab:
       propertyPath: maxPlayers
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114636369667653512, guid: 1d804610632de9443a022713234e20b0,
+        type: 2}
+      propertyPath: myCenter
+      value: 
+      objectReference: {fileID: 544942066}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1d804610632de9443a022713234e20b0, type: 2}
   m_IsPrefabParent: 0

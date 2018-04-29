@@ -51,11 +51,10 @@ public class ShipManager : MonoBehaviour {
 
 	void Update () {
 		Move(Time.deltaTime);
-
+            leftTimer += Time.deltaTime; //TODO: report to UI
         if (right == 4)
             rightTimer += Time.deltaTime; //TODO: report to UI
         if (left == 4)
-            leftTimer += Time.deltaTime; //TODO: report to UI
 
         if (rightTimer >= MaxCD) {
             right = 0;
@@ -172,5 +171,12 @@ public class ShipManager : MonoBehaviour {
             return false;
         index = i;
         return true;
+    }
+
+    private float WindSpeed()
+    {
+        float mySpeed;
+        mySpeed = (Vector2.Dot(gm.GetNormalizedWind(), rb.velocity) + 1) / 2.0f;
+        return mySpeed;
     }
 }

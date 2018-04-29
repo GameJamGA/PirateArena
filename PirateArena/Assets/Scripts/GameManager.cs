@@ -18,7 +18,8 @@ public class GameManager : MonoBehaviour {
     //prefab für die Spieler
     [SerializeField] private GameObject shipPrefab;
     [SerializeField] GameObject myCenter;
-    public Vector2 myWind;
+    private Vector2 myWind;
+    public Vector2 normalizedWind;
     Rigidbody2D myRB;
 
     private GameObject[] players;
@@ -88,6 +89,12 @@ public class GameManager : MonoBehaviour {
         }
 
        
+    }
+
+    public Vector2 GetNormalizedWind()
+    {
+        normalizedWind = myWind.normalized;
+        return normalizedWind;
     }
 
 }
