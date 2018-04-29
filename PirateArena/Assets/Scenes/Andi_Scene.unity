@@ -185,11 +185,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4744623481350120, guid: 9b45b2733da56224eb20b2914cb50b3a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.1
+      value: -0.23
       objectReference: {fileID: 0}
     - target: {fileID: 4744623481350120, guid: 9b45b2733da56224eb20b2914cb50b3a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.95
+      value: 0.29
       objectReference: {fileID: 0}
     - target: {fileID: 4744623481350120, guid: 9b45b2733da56224eb20b2914cb50b3a, type: 2}
       propertyPath: m_LocalPosition.z
@@ -284,26 +284,6 @@ Prefab:
     - target: {fileID: 4270506169395404, guid: a57c4f063a060b34d8e8d4bb16d7fbe1, type: 2}
       propertyPath: m_RootOrder
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 212182377653728330, guid: a57c4f063a060b34d8e8d4bb16d7fbe1,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 212749147459472042, guid: a57c4f063a060b34d8e8d4bb16d7fbe1,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114167550152040408, guid: a57c4f063a060b34d8e8d4bb16d7fbe1,
-        type: 2}
-      propertyPath: movementSpeed
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 114167550152040408, guid: a57c4f063a060b34d8e8d4bb16d7fbe1,
-        type: 2}
-      propertyPath: rotationSpeed
-      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a57c4f063a060b34d8e8d4bb16d7fbe1, type: 2}

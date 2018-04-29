@@ -7,6 +7,13 @@ public class WhirlManager : MonoBehaviour
 
     [SerializeField]
     float WhirlSpeed;
+    [SerializeField]
+    SpriteRenderer OuterWhirl;
+
+    private void Update()
+    {
+        OuterWhirl.transform.Rotate(0.0f, 0.0f, Time.deltaTime * WhirlSpeed);
+    }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
