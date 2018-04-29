@@ -26,6 +26,9 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private Transform[] spawnPosition;
     [SerializeField] private int maxPlayers;
 
+    [SerializeField]
+    SpriteRenderer Background;
+
     bool gameOver;
     
 
@@ -64,6 +67,8 @@ public class GameManager : MonoBehaviour {
         }
         //Vector3 movementVector = new Vector3(Vector2.up.x, Vector2.up.y, 0);
         //transform.position += (movementVector * movementspeed);
+
+        Background.transform.position = new Vector3(Mathf.Sin(Time.time)*0.2f,0,0);
     }
 
     private void AskForRestart()
