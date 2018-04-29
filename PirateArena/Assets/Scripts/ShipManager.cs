@@ -15,7 +15,11 @@ public class ShipManager : MonoBehaviour {
     SpriteRenderer RightPreView;
     [SerializeField]
     SpriteRenderer LeftPreView;
+    [SerializeField] private AudioSource myCannonSound;
+    UIManager myUI;
 
+    [SerializeField]
+    float WindInpackt;
     [SerializeField]
     float life;
     [SerializeField]
@@ -42,8 +46,10 @@ public class ShipManager : MonoBehaviour {
 
     //initialization
     void Start () {
+        myUI = GameObject.Find(StringCollection.UIMANAGER).GetComponent<UIManager>();
         rb = GetComponent<Rigidbody2D>();
         gm = GameObject.Find(StringCollection.GAMEMANAGER).GetComponent<GameManager>();
+        //myCannonSound = GetComponentInChildren<AudioSource>();
         
 	}
 
@@ -75,18 +81,26 @@ public class ShipManager : MonoBehaviour {
     }
 
     void SetReady() {
-        if (right == 1) {
+        if (right == 1)
+        {
             RightPreView.enabled = true;
             right = 2;
-        }else if (left == 1) {
+        }
+        else if (left == 1)
+        {
             LeftPreView.enabled = true;
             left = 2;
         }
+        else
+            return;
+        print("Ready!");
     }
 
     void Fire(){
-        if (right == 3) {
+        if (right == 3)
+        {
             GameObject temp = Instantiate(Bullet);
+            myCannonSound.Play();
             temp.transform.rotation = transform.rotation;
             temp.transform.position = transform.position + this.transform.right / 3;
             temp.GetComponent<Rigidbody2D>().velocity = this.transform.right * BulletSpeed;
@@ -95,8 +109,10 @@ public class ShipManager : MonoBehaviour {
 
             right = 4;
         }
-        else if (left == 3) {
+        else if (left == 3)
+        {
             GameObject temp = Instantiate(Bullet);
+            myCannonSound.Play();
             temp.transform.rotation = transform.rotation;
             temp.transform.position = transform.position - this.transform.right / 3;
             temp.GetComponent<Rigidbody2D>().velocity = -this.transform.right * BulletSpeed;
@@ -105,6 +121,8 @@ public class ShipManager : MonoBehaviour {
 
             left = 4;
         }
+        else
+            return;
         print("Fire!");
     }
 
@@ -114,17 +132,13 @@ public class ShipManager : MonoBehaviour {
                 horizontalAxis = -Input.GetAxis(StringCollection.Horizontal);
 
                 if (right == 0 && Input.GetAxis(StringCollection.VERTICAL) < 0) {
-                    right = 1; //TODO: Srage right side
-                    print("Stage right!");
+                    right = 1;
                 }else if (left == 0 && Input.GetAxis(StringCollection.VERTICAL) > 0) {
-                    left = 1; //TODO: Stage left side
-                    print("Stage left!");
+                    left = 1;
                 }else if (right == 2 && Input.GetAxis(StringCollection.VERTICAL) >= 0) {
-                    right = 3; //TODO: Fire right
-                    print("Fire right!");
+                    right = 3;
                 }else if (left == 2 && Input.GetAxis(StringCollection.VERTICAL) <= 0) {
-                    left = 3; //TODO: Fire left
-                    print("Fire left!");
+                    left = 3;
                 }
 
                 break;
@@ -137,11 +151,11 @@ public class ShipManager : MonoBehaviour {
                 else if (left == 0 && Input.GetAxis(StringCollection.VERTICAL2) > 0) {
                     left = 1; //TODO: Stage left side
                 }
-                else if (right == 1 && Input.GetAxis(StringCollection.VERTICAL2) >= 0) {
-                    right = 2; //TODO: Fire right
+                else if (right == 2 && Input.GetAxis(StringCollection.VERTICAL2) >= 0) {
+                    right = 3; //TODO: Fire right
                 }
-                else if (left == 1 && Input.GetAxis(StringCollection.VERTICAL2) <= 0) {
-                    left = 2; //TODO: Fire left
+                else if (left == 2 && Input.GetAxis(StringCollection.VERTICAL2) <= 0) {
+                    left = 3; //TODO: Fire left
                 }
 
                 break;
@@ -152,8 +166,8 @@ public class ShipManager : MonoBehaviour {
     }
 
 	void Move(float delta) {
-        rb.velocity = this.transform.up * movementSpeed * delta; //changes velosity so you can kolide with islands and ships //TODO: add wind
-        
+        rb.velocity = this.transform.up * movementSpeed * delta * WindSpeed(); //changes velosity so you can kolide with islands and ships //TODO: add wind
+        rb.velocity += gm.GetNormalizedWind()*WindInpackt;
         transform.Rotate(0, 0, horizontalAxis * rotationSpeed * delta); //rotates player dependend of input
     }
 
@@ -161,7 +175,10 @@ public class ShipManager : MonoBehaviour {
         life -= damage;
         if (life <= 0) {
             gm.SetGameOver();
-        } //TODO: else report to UI
+        }
+        myUI.LoseLifeUI(index);
+        //TODO: else report to UI
+        print(life);
     }
 
     bool SetIndex (int i) {
@@ -178,5 +195,15 @@ public class ShipManager : MonoBehaviour {
         float mySpeed;
         mySpeed = (Vector2.Dot(gm.GetNormalizedWind(), rb.velocity) + 1) / 2.0f;
         return mySpeed;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.gameObject.tag == "Cannonball")
+        {
+            Debug.Log("Hit!");
+            collision.transform.gameObject.GetComponent<ShipManager>().OnHit(1);
+            Destroy(transform.gameObject);
+        }
     }
 }
