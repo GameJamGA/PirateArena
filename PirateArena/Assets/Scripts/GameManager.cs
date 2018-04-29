@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour {
     //prefab für die Spieler
     [SerializeField] private GameObject shipPrefab;
     //TODO: SCHIFFE ALS ARRAY LADEN
-    //private ShipManager[] players;
+    private GameObject[] players;
     [SerializeField] private Transform[] spawnPosition;
     [SerializeField] private int maxPlayers;
 
@@ -29,7 +29,10 @@ public class GameManager : MonoBehaviour {
     {
         GameObject[] temp = new GameObject[maxPlayers];
         temp = GameObject.FindGameObjectsWithTag(StringCollection.SPAWN);
-        for(int i = 0; i <= maxPlayers; i++)
+
+        players = new GameObject[maxPlayers];
+
+        for (int i = 0; i <= maxPlayers - 1; i++)
         {
             spawnPosition[i] = temp[i].transform;
         }
@@ -62,10 +65,10 @@ public class GameManager : MonoBehaviour {
     private void StartGame()
     {
         //spawnt schiffe an alle spawns
-        int spawnlength = spawnPosition.Length;
-        for(int i = 0; i <= spawnlength; i++)
+        
+        for(int i = 0; i <= maxPlayers - 1; i++)
         {
-            Instantiate(shipPrefab, spawnPosition[i].transform);
+            players[i] = Instantiate(shipPrefab, spawnPosition[i].transform);
             //TODO: Index addieren.
 
         }
