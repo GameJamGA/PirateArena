@@ -123,7 +123,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1753537700370340}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.4812293, y: -3.170559, z: -0.82}
+  m_LocalPosition: {x: -8.269679, y: -2.8045468, z: -0.82}
   m_LocalScale: {x: 1.5, y: 1.5, z: 2}
   m_Children:
   - {fileID: 4051005339757536}
@@ -162,7 +162,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b9944011e4e5afe4bb4d8b98f0ece1d6, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -246,7 +246,7 @@ MonoBehaviour:
   index: 0
   RightPreView: {fileID: 212489331261864826}
   LeftPreView: {fileID: 212369609193062012}
-  myCannonSound: {fileID: 0}
+  myCannonSound: {fileID: 82692186249546572}
   WindInpackt: 0.05
   life: 3
   movementSpeed: 40
