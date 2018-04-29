@@ -32,7 +32,8 @@ public class BulletManager : MonoBehaviour {
         {
             Debug.Log("Hit!");
             collision.transform.gameObject.GetComponent<ShipManager>().OnHit(damage);
-            Instantiate(explosion, collision.transform.position, collision.transform.rotation, collision.transform);
+            GameObject explosionObj = Instantiate(explosion, collision.transform.position, collision.transform.rotation);
+            explosionObj.GetComponent<ParticleSystem>().Play();
             Destroy(transform.gameObject);
         }
     }

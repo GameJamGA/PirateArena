@@ -196,13 +196,13 @@ public class ShipManager : MonoBehaviour {
         return mySpeed;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.transform.gameObject.tag == "Cannonball")
-        {
-            Debug.Log("Hit!");
-            collision.transform.gameObject.GetComponent<ShipManager>().OnHit(1);
-            Destroy(transform.gameObject);
-        }
-    }
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.transform.gameObject.tag == "Cannonball")
+    //    {
+    //        Debug.Log("Hit!");
+    //        collision.transform.gameObject.GetComponent<ShipManager>().OnHit(1);
+    //        Destroy(transform.gameObject);
+    //    }
+    //}
 }
