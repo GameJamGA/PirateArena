@@ -17,6 +17,8 @@ public class ShipManager : MonoBehaviour {
     SpriteRenderer LeftPreView;
 
     [SerializeField]
+    float WindInpackt;
+    [SerializeField]
     float life;
     [SerializeField]
     float movementSpeed;
@@ -159,7 +161,7 @@ public class ShipManager : MonoBehaviour {
 
 	void Move(float delta) {
         rb.velocity = this.transform.up * movementSpeed * delta * WindSpeed(); //changes velosity so you can kolide with islands and ships //TODO: add wind
-        
+        rb.velocity += gm.GetNormalizedWind()*WindInpackt;
         transform.Rotate(0, 0, horizontalAxis * rotationSpeed * delta); //rotates player dependend of input
     }
 

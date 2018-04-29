@@ -53,14 +53,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 0
-  RightPreView: {fileID: 0}
-  LeftPreView: {fileID: 0}
-  life: 0
-  movementSpeed: 0
-  rotationSpeed: 0
-  MaxCD: 0
-  BulletSpeed: 0
-  Bullet: {fileID: 0}
+  RightPreView: {fileID: 212182377653728330, guid: a57c4f063a060b34d8e8d4bb16d7fbe1,
+    type: 2}
+  LeftPreView: {fileID: 212749147459472042, guid: a57c4f063a060b34d8e8d4bb16d7fbe1,
+    type: 2}
+  WindInpackt: 0.1
+  life: 5
+  movementSpeed: 40
+  rotationSpeed: 40
+  MaxCD: 1
+  BulletSpeed: 1
+  Bullet: {fileID: 1316476975077666, guid: 3a3807e882454184aa18fc557c47f3fb, type: 2}
   MaxPlayer: 2
 --- !u!212 &212092412802853218
 SpriteRenderer:
