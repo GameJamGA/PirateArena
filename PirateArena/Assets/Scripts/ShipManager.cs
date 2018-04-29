@@ -2,21 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class ShipManager : MonoBehaviour {
 
-	public int index = 0; //index of the ship. is used for input controle
-    public Rigidbody2D rb;
+    public int index = 0; //index of the ship. is used for input controle
+    private Rigidbody2D rb;
 
     private GameManager gm;
 
-    [SerializeField] float life;
-    [SerializeField] float movementSpeed;
-    [SerializeField] float rotationSpeed;
-    [SerializeField] float MaxCD;
-    [SerializeField] float BulletSpeed;
+
+
+    [SerializeField]
+    SpriteRenderer RightPreView;
+    [SerializeField]
+    SpriteRenderer LeftPreView;
+
+    [SerializeField]
+    float life;
+    [SerializeField]
+    float movementSpeed;
+    [SerializeField]
+    float rotationSpeed;
+    [SerializeField]
+    float MaxCD;
+    [SerializeField]
+    float BulletSpeed;
+    [SerializeField]
+    GameObject Bullet;
 
     [SerializeField] int MaxPlayer = 2;
+
+    GameObject[] PreViewInstans;
 
     int right = 0;
     float rightTimer = 0;
@@ -29,16 +44,17 @@ public class ShipManager : MonoBehaviour {
     void Start () {
         rb = GetComponent<Rigidbody2D>();
         gm = GameObject.Find(StringCollection.GAMEMANAGER).GetComponent<GameManager>();
+        
 	}
 
 
 
 	void Update () {
 		Move(Time.deltaTime);
-        if (right == 2)
-            rightTimer += Time.deltaTime;
-        if (left == 2)
-            leftTimer += Time.deltaTime;
+            leftTimer += Time.deltaTime; //TODO: report to UI
+        if (right == 4)
+            rightTimer += Time.deltaTime; //TODO: report to UI
+        if (left == 4)
 
         if (rightTimer >= MaxCD) {
             right = 0;
@@ -48,10 +64,48 @@ public class ShipManager : MonoBehaviour {
             left = 0;
             leftTimer = 0;
         }
+        if (right == 1 || left == 1)
+            SetReady();
+        if (right == 3 || left == 3)
+            Fire();
 	}
 
 	void FixedUpdate() {
         InputManager();
+    }
+
+    void SetReady() {
+        if (right == 1) {
+            RightPreView.enabled = true;
+            right = 2;
+        }else if (left == 1) {
+            LeftPreView.enabled = true;
+            left = 2;
+        }
+    }
+
+    void Fire(){
+        if (right == 3) {
+            GameObject temp = Instantiate(Bullet);
+            temp.transform.rotation = transform.rotation;
+            temp.transform.position = transform.position + this.transform.right / 3;
+            temp.GetComponent<Rigidbody2D>().velocity = this.transform.right * BulletSpeed;
+
+            RightPreView.enabled = false;
+
+            right = 4;
+        }
+        else if (left == 3) {
+            GameObject temp = Instantiate(Bullet);
+            temp.transform.rotation = transform.rotation;
+            temp.transform.position = transform.position - this.transform.right / 3;
+            temp.GetComponent<Rigidbody2D>().velocity = -this.transform.right * BulletSpeed;
+
+            LeftPreView.enabled = false;
+
+            left = 4;
+        }
+        print("Fire!");
     }
 
     void InputManager() {
@@ -61,12 +115,16 @@ public class ShipManager : MonoBehaviour {
 
                 if (right == 0 && Input.GetAxis(StringCollection.VERTICAL) < 0) {
                     right = 1; //TODO: Srage right side
+                    print("Stage right!");
                 }else if (left == 0 && Input.GetAxis(StringCollection.VERTICAL) > 0) {
                     left = 1; //TODO: Stage left side
-                }else if (right == 1 && Input.GetAxis(StringCollection.VERTICAL) >= 0) {
-                    right = 2; //TODO: Fire right
-                }else if (left == 1 && Input.GetAxis(StringCollection.VERTICAL) <= 0) {
-                    left = 2; //TODO: Fire left
+                    print("Stage left!");
+                }else if (right == 2 && Input.GetAxis(StringCollection.VERTICAL) >= 0) {
+                    right = 3; //TODO: Fire right
+                    print("Fire right!");
+                }else if (left == 2 && Input.GetAxis(StringCollection.VERTICAL) <= 0) {
+                    left = 3; //TODO: Fire left
+                    print("Fire left!");
                 }
 
                 break;
