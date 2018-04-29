@@ -8,6 +8,7 @@ TagManager:
   - Rocks
   - Whirl
   - Spawn
+  - Cannonball
   layers:
   - Default
   - TransparentFX

@@ -17,6 +17,7 @@ public class StringCollection {
     public const string PLAYER1 = "Player1";
     public const string PLAYER2 = "Player2";
     public const string SPAWN = "Spawn";
+    public const string UIMANAGER = "UIManager";
     //
 
 

@@ -15,6 +15,8 @@ public class ShipManager : MonoBehaviour {
     SpriteRenderer RightPreView;
     [SerializeField]
     SpriteRenderer LeftPreView;
+    [SerializeField] private AudioSource myCannonSound;
+    UIManager myUI;
 
     [SerializeField]
     float WindInpackt;
@@ -44,8 +46,10 @@ public class ShipManager : MonoBehaviour {
 
     //initialization
     void Start () {
+        myUI = GameObject.Find(StringCollection.UIMANAGER).GetComponent<UIManager>();
         rb = GetComponent<Rigidbody2D>();
         gm = GameObject.Find(StringCollection.GAMEMANAGER).GetComponent<GameManager>();
+        //myCannonSound = GetComponentInChildren<AudioSource>();
         
 	}
 
@@ -96,6 +100,7 @@ public class ShipManager : MonoBehaviour {
         if (right == 3)
         {
             GameObject temp = Instantiate(Bullet);
+            myCannonSound.Play();
             temp.transform.rotation = transform.rotation;
             temp.transform.position = transform.position + this.transform.right / 3;
             temp.GetComponent<Rigidbody2D>().velocity = this.transform.right * BulletSpeed;
@@ -107,6 +112,7 @@ public class ShipManager : MonoBehaviour {
         else if (left == 3)
         {
             GameObject temp = Instantiate(Bullet);
+            myCannonSound.Play();
             temp.transform.rotation = transform.rotation;
             temp.transform.position = transform.position - this.transform.right / 3;
             temp.GetComponent<Rigidbody2D>().velocity = -this.transform.right * BulletSpeed;
@@ -169,7 +175,9 @@ public class ShipManager : MonoBehaviour {
         life -= damage;
         if (life <= 0) {
             gm.SetGameOver();
-        } //TODO: else report to UI
+        }
+        myUI.LoseLifeUI(index);
+        //TODO: else report to UI
         print(life);
     }
 
@@ -187,5 +195,15 @@ public class ShipManager : MonoBehaviour {
         float mySpeed;
         mySpeed = (Vector2.Dot(gm.GetNormalizedWind(), rb.velocity) + 1) / 2.0f;
         return mySpeed;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.gameObject.tag == "Cannonball")
+        {
+            Debug.Log("Hit!");
+            collision.transform.gameObject.GetComponent<ShipManager>().OnHit(1);
+            Destroy(transform.gameObject);
+        }
     }
 }
