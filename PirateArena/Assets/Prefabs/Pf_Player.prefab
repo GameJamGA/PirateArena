@@ -152,6 +152,7 @@ MonoBehaviour:
   index: 0
   RightPreView: {fileID: 212182377653728330}
   LeftPreView: {fileID: 212749147459472042}
+  WindInpackt: 0.1
   life: 5
   movementSpeed: 40
   rotationSpeed: 40
