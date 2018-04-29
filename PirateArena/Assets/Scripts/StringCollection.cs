@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StringCollection {
 
-
+    public const string GAMEMANAGER = "GameManager";
 
     //PLAYER 1
     public const string VERTICAL = "Vertical";

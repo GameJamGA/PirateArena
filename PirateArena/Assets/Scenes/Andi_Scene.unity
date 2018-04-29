@@ -241,7 +241,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4270506169395404, guid: a57c4f063a060b34d8e8d4bb16d7fbe1, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a57c4f063a060b34d8e8d4bb16d7fbe1, type: 2}
@@ -437,6 +437,90 @@ Transform:
   m_PrefabParentObject: {fileID: 4480911182795250, guid: d8ea51551f8a45945ab21a48c8f442f1,
     type: 2}
   m_PrefabInternal: {fileID: 1116414226}
+--- !u!1001 &1319254317
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4175139463991706, guid: 3a3807e882454184aa18fc557c47f3fb, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4175139463991706, guid: 3a3807e882454184aa18fc557c47f3fb, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4175139463991706, guid: 3a3807e882454184aa18fc557c47f3fb, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4175139463991706, guid: 3a3807e882454184aa18fc557c47f3fb, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4175139463991706, guid: 3a3807e882454184aa18fc557c47f3fb, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4175139463991706, guid: 3a3807e882454184aa18fc557c47f3fb, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4175139463991706, guid: 3a3807e882454184aa18fc557c47f3fb, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4175139463991706, guid: 3a3807e882454184aa18fc557c47f3fb, type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 3a3807e882454184aa18fc557c47f3fb, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &1409366424
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4573340986007010, guid: 1d804610632de9443a022713234e20b0, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4573340986007010, guid: 1d804610632de9443a022713234e20b0, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4573340986007010, guid: 1d804610632de9443a022713234e20b0, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4573340986007010, guid: 1d804610632de9443a022713234e20b0, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4573340986007010, guid: 1d804610632de9443a022713234e20b0, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4573340986007010, guid: 1d804610632de9443a022713234e20b0, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4573340986007010, guid: 1d804610632de9443a022713234e20b0, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4573340986007010, guid: 1d804610632de9443a022713234e20b0, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 1d804610632de9443a022713234e20b0, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1969858300
 GameObject:
   m_ObjectHideFlags: 0
