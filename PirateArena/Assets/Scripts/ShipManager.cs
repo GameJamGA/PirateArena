@@ -35,7 +35,6 @@ public class ShipManager : MonoBehaviour {
 
 	void Update () {
 		Move(Time.deltaTime);
-        Debug.Log("my Windspeed is" + WindSpeed());
         if (right == 2)
             rightTimer += Time.deltaTime;
         if (left == 2)
