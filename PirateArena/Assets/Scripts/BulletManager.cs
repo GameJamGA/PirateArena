@@ -6,6 +6,7 @@ public class BulletManager : MonoBehaviour {
 
     float currentLifeTime = 0;
 
+    [SerializeField] GameObject explosion;
     [SerializeField] float maxLifeTime;
     [SerializeField] float damage = 1;
 
@@ -31,6 +32,7 @@ public class BulletManager : MonoBehaviour {
         {
             Debug.Log("Hit!");
             collision.transform.gameObject.GetComponent<ShipManager>().OnHit(damage);
+            Instantiate(explosion, collision.transform.position, collision.transform.rotation, collision.transform);
             Destroy(transform.gameObject);
         }
     }
