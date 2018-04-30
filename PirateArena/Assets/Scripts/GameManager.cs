@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour {
      */
 
     //prefab für die Spieler
-    [SerializeField] private GameObject shipPrefab;
+    [SerializeField] private GameObject[] shipPrefab;
     [SerializeField] GameObject myCenter;
     private Vector2 myWind;
     public Vector2 normalizedWind;
@@ -106,7 +106,7 @@ public class GameManager : MonoBehaviour {
         
         for(int i = 0; i <= maxPlayers - 1; i++)
         {
-            players[i] = Instantiate(shipPrefab, spawnPosition[i].transform.position, spawnPosition[i].transform.rotation);
+            players[i] = Instantiate(shipPrefab[i], spawnPosition[i].transform.position, spawnPosition[i].transform.rotation);
             players[i].GetComponent<ShipManager>().index = i;
         }
 
