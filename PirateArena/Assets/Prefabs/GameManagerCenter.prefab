@@ -108,3 +108,5 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   maxPlayers: 2
+  Background: {fileID: 0}
+  GameOver: {fileID: 0}

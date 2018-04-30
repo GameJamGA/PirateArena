@@ -714,6 +714,11 @@ Prefab:
       propertyPath: Background
       value: 
       objectReference: {fileID: 1952433776}
+    - target: {fileID: 114215938572634522, guid: 7e3c14c8a31bf864ca2e36744452ff02,
+        type: 2}
+      propertyPath: GameOver
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7e3c14c8a31bf864ca2e36744452ff02, type: 2}
   m_IsPrefabParent: 0
