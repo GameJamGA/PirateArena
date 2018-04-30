@@ -61,7 +61,14 @@ public class GameManager : MonoBehaviour {
         myRB.velocity = randomVec;
         //add random movement here
 
-        if (gameOver == true)
+        if (!gameOver)
+        {
+            if(Time.timeScale == 0)
+            {
+                Time.timeScale = 1;
+            }
+        }
+        if (gameOver)
         {
             if (Time.timeScale != 0)
             {
@@ -78,6 +85,7 @@ public class GameManager : MonoBehaviour {
     public void AskForRestart()
     {
         SceneManager.LoadScene("Masterscene");
+        Time.timeScale = 1f;
     }
 
     public void SetGameOver()
