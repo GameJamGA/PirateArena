@@ -141,6 +141,13 @@ MonoBehaviour:
   m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
 --- !u!114 &14482615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,6 +159,9 @@ MonoBehaviour:
   m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 5
 --- !u!4 &14482616
 Transform:
   m_ObjectHideFlags: 0
@@ -541,6 +551,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 212336406252012472, guid: bd85c706618df7e4d855db803e49af98,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 212517461685979466, guid: bd85c706618df7e4d855db803e49af98,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 212986366623905462, guid: bd85c706618df7e4d855db803e49af98,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bd85c706618df7e4d855db803e49af98, type: 2}
   m_IsPrefabParent: 0
@@ -708,6 +733,14 @@ Prefab:
         type: 2}
       propertyPath: GameOver
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4343674004762570, guid: 7e3c14c8a31bf864ca2e36744452ff02, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4343674004762570, guid: 7e3c14c8a31bf864ca2e36744452ff02, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7e3c14c8a31bf864ca2e36744452ff02, type: 2}
@@ -880,6 +913,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 14
       objectReference: {fileID: 0}
+    - target: {fileID: 212942838336139744, guid: 33f62d3a02da2744c9e6bd0b897703db,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 212469393570962916, guid: 33f62d3a02da2744c9e6bd0b897703db,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 212235157736183868, guid: 33f62d3a02da2744c9e6bd0b897703db,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 33f62d3a02da2744c9e6bd0b897703db, type: 2}
   m_IsPrefabParent: 0
@@ -974,6 +1022,11 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!114 &1647970561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -985,6 +1038,16 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
 --- !u!223 &1647970562
 Canvas:
   m_ObjectHideFlags: 0
@@ -1214,6 +1277,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 18
       objectReference: {fileID: 0}
+    - target: {fileID: 4800822007989314, guid: 3fe1eef6672bab0478b26ecee8f47fe6, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4800822007989314, guid: 3fe1eef6672bab0478b26ecee8f47fe6, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3fe1eef6672bab0478b26ecee8f47fe6, type: 2}
   m_IsPrefabParent: 0
@@ -1234,6 +1305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clouds: {fileID: 0}
+  movespeed: 0.02
 --- !u!1 &1952433774
 GameObject:
   m_ObjectHideFlags: 0

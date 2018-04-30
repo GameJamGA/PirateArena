@@ -7,7 +7,7 @@ public class CloudManager : MonoBehaviour {
     [SerializeField] GameObject clouds;
     GameManager myGM;
 
-    private float movespeed = 2;
+    [SerializeField] private float movespeed = 2;
 
     private void Start()
     {
