@@ -692,6 +692,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114215938572634522, guid: 7e3c14c8a31bf864ca2e36744452ff02,
+        type: 2}
+      propertyPath: shipPrefab.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4910475953045662, guid: 7e3c14c8a31bf864ca2e36744452ff02, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
