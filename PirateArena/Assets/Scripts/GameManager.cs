@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour {
         myRB.velocity = randomVec;
         //add random movement here
 
-        if (!gameOver)
+        /*if (gameOver == true)
         {
             if(Time.timeScale == 0)
             {
@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour {
                 FreezeGame();
             }
                 
-        }
+        }*/
         //Vector3 movementVector = new Vector3(Vector2.up.x, Vector2.up.y, 0);
         //transform.position += (movementVector * movementspeed);
 
@@ -88,9 +88,15 @@ public class GameManager : MonoBehaviour {
         Time.timeScale = 1f;
     }
 
+    public void QuitGame()
+    {
+        SceneManager.LoadScene("StartMenu");
+    }
+
     public void SetGameOver()
     {
         gameOver = true;
+        SceneManager.LoadScene("GameOver");
     }
 
     private void StartGame()
