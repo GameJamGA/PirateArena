@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 208dfa1e31194e649abf35a5433f34cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WhirlSpeed: 30
+  WhirlSpeed: 20
   OuterWhirl: {fileID: 212349101619837408}
   MiddleWhirl: {fileID: 212571142112944248}
   InnerWhirl: {fileID: 212248534903397378}

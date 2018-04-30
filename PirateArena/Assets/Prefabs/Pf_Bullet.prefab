@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 1781369066301004, guid: e3888f804f9463c489e5d548f8012123, type: 2}
-  maxLifeTime: 3
+  maxLifeTime: 20
   damage: 1
 --- !u!212 &212249858371443712
 SpriteRenderer:
