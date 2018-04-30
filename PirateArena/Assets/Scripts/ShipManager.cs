@@ -14,6 +14,7 @@ public class ShipManager : MonoBehaviour {
     [SerializeField]
     SpriteRenderer LeftPreView;
     [SerializeField] private AudioSource myCannonSound;
+    [SerializeField] private AudioSource myCaptainSound;
     UIManager myUI;
 
     [SerializeField]
@@ -128,6 +129,7 @@ public class ShipManager : MonoBehaviour {
         }
         else
             return;
+        myCaptainSound.Play();
         print("Fire!");
     }
 
