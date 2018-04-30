@@ -11,6 +11,7 @@ public class CloudManager : MonoBehaviour {
 
     private void Start()
     {
+        clouds = transform.gameObject;
         myGM = GameObject.Find(StringCollection.GAMEMANAGER).GetComponent<GameManager>();
     }
 
