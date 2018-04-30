@@ -63,6 +63,13 @@ public class GameManager : MonoBehaviour {
 
         /*if (gameOver == true)
         {
+            if(Time.timeScale == 0)
+            {
+                Time.timeScale = 1;
+            }
+        }
+        if (gameOver)
+        {
             if (Time.timeScale != 0)
             {
                 FreezeGame();
@@ -78,6 +85,7 @@ public class GameManager : MonoBehaviour {
     public void AskForRestart()
     {
         SceneManager.LoadScene("Masterscene");
+        Time.timeScale = 1f;
     }
 
     public void QuitGame()
