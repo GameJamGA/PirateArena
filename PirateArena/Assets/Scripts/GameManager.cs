@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour {
 
     private void AskForRestart()
     {
-
+        StartGame();
     }
 
     public void SetGameOver()
@@ -89,13 +89,13 @@ public class GameManager : MonoBehaviour {
         {
             players[i] = Instantiate(shipPrefab, spawnPosition[i].transform.position, spawnPosition[i].transform.rotation);
             players[i].GetComponent<ShipManager>().index = i;
-            
-
         }
 
        
     }
 
+
+    //öffentliche funktion, die den Windvektor an alle Objekte übergeben kann
     public Vector2 GetNormalizedWind()
     {
         normalizedWind = myWind.normalized;
