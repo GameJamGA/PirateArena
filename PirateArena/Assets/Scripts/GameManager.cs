@@ -63,7 +63,11 @@ public class GameManager : MonoBehaviour {
 
         if (gameOver == true)
         {
-            AskForRestart();
+            if (Time.timeScale != 0)
+            {
+                FreezeGame();
+            }
+                
         }
         //Vector3 movementVector = new Vector3(Vector2.up.x, Vector2.up.y, 0);
         //transform.position += (movementVector * movementspeed);
@@ -71,9 +75,9 @@ public class GameManager : MonoBehaviour {
         Background.transform.position = new Vector3(Mathf.Sin(Time.time)*0.2f,0,0);
     }
 
-    private void AskForRestart()
+    public void AskForRestart()
     {
-        StartGame();
+        SceneManager.LoadScene("Masterscene");
     }
 
     public void SetGameOver()
@@ -83,6 +87,7 @@ public class GameManager : MonoBehaviour {
 
     private void StartGame()
     {
+        Time.timeScale = 1.0f;
         //spawnt schiffe an alle spawns
         
         for(int i = 0; i <= maxPlayers - 1; i++)
@@ -91,7 +96,8 @@ public class GameManager : MonoBehaviour {
             players[i].GetComponent<ShipManager>().index = i;
         }
 
-       
+        
+        gameOver = false;
     }
 
 
@@ -102,4 +108,8 @@ public class GameManager : MonoBehaviour {
         return normalizedWind;
     }
 
+    public void FreezeGame()
+    {
+        Time.timeScale = 0;
+    }
 }

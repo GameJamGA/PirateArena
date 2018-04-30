@@ -17,23 +17,10 @@ public class UIManager : MonoBehaviour {
 
     private void Start()
     {
-        int iA = 11;
-        int jA = 21;
-
         myGM = GameObject.Find(StringCollection.GAMEMANAGER).GetComponent<GameManager>();
 
-        for (int i = 0;i <= player1UI.Length - 1; i++)
-        {
-            player1UI[i] = GameObject.Find(iA.ToString());
-            player1UI[i].SetActive(true);
-            iA++;
-        }
-        for (int j = 0; j <= player1UI.Length - 1; j++)
-        {
-            player2UI[j] = GameObject.Find(jA.ToString());
-            player1UI[j].SetActive(true);
-            jA++;
-        }
+        ResetLifeUI();
+
     }
 
     public void LoseLifeUI(int index)
@@ -77,6 +64,24 @@ public class UIManager : MonoBehaviour {
         }
     }
 
+    public void ResetLifeUI()
+    {
+        int iA = 11;
+        int jA = 21;
+
+        for (int i = 0; i <= player1UI.Length - 1; i++)
+        {
+            player1UI[i] = GameObject.Find(iA.ToString());
+            player1UI[i].SetActive(true);
+            iA++;
+        }
+        for (int j = 0; j <= player1UI.Length - 1; j++)
+        {
+            player2UI[j] = GameObject.Find(jA.ToString());
+            player1UI[j].SetActive(true);
+            jA++;
+        }
+    }
     public void UpdateCD(int index, float procent, bool right)
     {
         if (index == 0)
