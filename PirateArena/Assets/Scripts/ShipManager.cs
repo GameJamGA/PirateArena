@@ -174,6 +174,7 @@ public class ShipManager : MonoBehaviour {
     public void OnHit(float damage = 1) { //will decrese the live of the player. it will report its death if it reaches 0 to gamemanager
         life -= damage;
         if (life <= 0) {
+            Destroy(gameObject);
             gm.SetGameOver();
         }
         myUI.LoseLifeUI(index);
