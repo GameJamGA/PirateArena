@@ -102,7 +102,7 @@ public class ShipManager : MonoBehaviour {
             GameObject temp = Instantiate(Bullet);
             myCannonSound.Play();
             temp.transform.rotation = transform.rotation;
-            temp.transform.position = transform.position + this.transform.right / 3;
+            temp.transform.position = transform.position + this.transform.right * 0.7f;
             temp.GetComponent<Rigidbody2D>().velocity = this.transform.right * BulletSpeed;
 
             RightPreView.enabled = false;
@@ -114,7 +114,7 @@ public class ShipManager : MonoBehaviour {
             GameObject temp = Instantiate(Bullet);
             myCannonSound.Play();
             temp.transform.rotation = transform.rotation;
-            temp.transform.position = transform.position - this.transform.right / 3;
+            temp.transform.position = transform.position - this.transform.right * 0.7f;
             temp.GetComponent<Rigidbody2D>().velocity = -this.transform.right * BulletSpeed;
 
             LeftPreView.enabled = false;
@@ -146,16 +146,16 @@ public class ShipManager : MonoBehaviour {
                 horizontalAxis = -Input.GetAxis(StringCollection.HORIZONTAL2);
 
                 if (right == 0 && Input.GetAxis(StringCollection.VERTICAL2) < 0)  {
-                    right = 1; //TODO: Srage right side
+                    right = 1;
                 }
                 else if (left == 0 && Input.GetAxis(StringCollection.VERTICAL2) > 0) {
-                    left = 1; //TODO: Stage left side
+                    left = 1;
                 }
                 else if (right == 2 && Input.GetAxis(StringCollection.VERTICAL2) >= 0) {
-                    right = 3; //TODO: Fire right
+                    right = 3;
                 }
                 else if (left == 2 && Input.GetAxis(StringCollection.VERTICAL2) <= 0) {
-                    left = 3; //TODO: Fire left
+                    left = 3;
                 }
 
                 break;
@@ -166,7 +166,7 @@ public class ShipManager : MonoBehaviour {
     }
 
 	void Move(float delta) {
-        rb.velocity = this.transform.up * movementSpeed * delta * WindSpeed(); //changes velosity so you can kolide with islands and ships //TODO: add wind
+        rb.velocity = this.transform.up * movementSpeed * delta * WindSpeed(); //changes velosity so you can kolide with islands and ships
         rb.velocity += gm.GetNormalizedWind()*WindInpackt;
         transform.Rotate(0, 0, horizontalAxis * rotationSpeed * delta); //rotates player dependend of input
     }
@@ -177,7 +177,6 @@ public class ShipManager : MonoBehaviour {
             gm.SetGameOver();
         }
         myUI.LoseLifeUI(index);
-        //TODO: else report to UI
         print(life);
     }
 
@@ -197,13 +196,13 @@ public class ShipManager : MonoBehaviour {
         return mySpeed;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.transform.gameObject.tag == "Cannonball")
-        {
-            Debug.Log("Hit!");
-            collision.transform.gameObject.GetComponent<ShipManager>().OnHit(1);
-            Destroy(transform.gameObject);
-        }
-    }
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.transform.gameObject.tag == "Cannonball")
+    //    {
+    //        Debug.Log("Hit!");
+    //        collision.transform.gameObject.GetComponent<ShipManager>().OnHit(1);
+    //        Destroy(transform.gameObject);
+    //    }
+    //}
 }
