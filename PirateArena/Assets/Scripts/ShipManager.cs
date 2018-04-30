@@ -9,8 +9,6 @@ public class ShipManager : MonoBehaviour {
 
     private GameManager gm;
 
-
-
     [SerializeField]
     SpriteRenderer RightPreView;
     [SerializeField]
@@ -57,10 +55,17 @@ public class ShipManager : MonoBehaviour {
 
 	void Update () {
 		Move(Time.deltaTime);
-            leftTimer += Time.deltaTime; //TODO: report to UI
+
         if (right == 4)
-            rightTimer += Time.deltaTime; //TODO: report to UI
+        {
+            rightTimer += Time.deltaTime;
+            myUI.UpdateCD(index, rightTimer / MaxCD, true);
+        }
         if (left == 4)
+        {
+            leftTimer += Time.deltaTime;
+            myUI.UpdateCD(index, leftTimer / MaxCD, false);
+        }
 
         if (rightTimer >= MaxCD) {
             right = 0;

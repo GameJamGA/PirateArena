@@ -9,6 +9,9 @@ public class UIManager : MonoBehaviour {
     [SerializeField] GameObject player1Parent;
     [SerializeField] GameObject player2Parent;
 
+    [SerializeField] GameObject player1CD;
+    [SerializeField] GameObject player2CD;
+
     GameObject[] player1UI = new GameObject[3];
     GameObject[] player2UI = new GameObject[3];
 
@@ -71,6 +74,17 @@ public class UIManager : MonoBehaviour {
             {
                 myGM.SetGameOver();
             }
+        }
+    }
+
+    public void UpdateCD(int index, float procent, bool right)
+    {
+        if (index == 0)
+        {
+            player1CD.GetComponent<CDManager>().UpdateCD(procent, right);
+        }else if (index == 1)
+        {
+            player2CD.GetComponent<CDManager>().UpdateCD(procent, right);
         }
     }
 
