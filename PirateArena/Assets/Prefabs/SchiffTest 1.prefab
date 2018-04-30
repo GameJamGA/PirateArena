@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 114812280736889568}
   - component: {fileID: 70522537271637078}
   m_Layer: 0
-  m_Name: SchiffRot
+  m_Name: SchiffTest 1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

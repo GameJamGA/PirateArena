@@ -421,9 +421,8 @@ MonoBehaviour:
   m_Text: "Add awesome Creadits here:\n\n\n\n\nThank you for playing\nPirate Arena\n\n\nthis
     game was created as part of the GAmeJAM\n\n\n\nGamedesign:\nSebastian Gs\xE4nger\nAndreas
     Edmeier\nCaleb Garnatz\n\nProgramming:\nSebastian Gs\xE4nger\nAndreas Edmeier\n\nArt:\nCaleb
-    Garnatz\n\nMusic:\nOpengameart.org\n\nVocals:\nSebastian Gs\xE4nger\nAndreas Edmeier\n\nWebside:\n[itch.io
-    seite]\n\nSpecial Thanks:\nMarry Popins\nMiki Maus\nTill Lindemann\nAngela Merkel\nElon
-    Musk\n\n\n\n<3"
+    Garnatz\n\nMusic:\nOpengameart.org\n\nVocals:\nSebastian Gs\xE4nger\nAndreas Edmeier\n\nWebside:\nhttps://pommelz.itch.io/pirate-arena\n\nSpecial
+    Thanks:\nMarry Popins\nMiki Maus\nTill Lindemann\nAngela Merkel\nElon Musk\n\n\n\n<3"
 --- !u!222 &1980743370
 CanvasRenderer:
   m_ObjectHideFlags: 0
